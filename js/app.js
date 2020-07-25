@@ -9,6 +9,8 @@ firebase.initializeApp({
   
   var db = firebase.firestore();
 
+listar();
+
 function guardar(){
     
     var name = document.getElementById("nombre").value;
