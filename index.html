@@ -15,62 +15,85 @@
 </head>
 <body>
 
-        <nav class="navbar navbar-light bg-light">
-                <span class="navbar-brand mb-0 h1">Farmacia</span>
-        </nav>
 
 <div class="container" >
     
-    <div class="alert alert-success" role="alert">
-     Registrar medicamento
-    </div>
-    <div class="row">
-        <div class="col-6 col-md-6">
-                <div class="form-group">
-                        <label >Nombre</label>
-                        <input type="text" id="nombre" class="form-control" maxlength="25">
-                </div>
-        </div>
-        <div class="col-6 col-md-6">
-                <div class="form-group">
-                        <label >Descripcion</label>
-                        <input type="text" id="descripcion" class="form-control" maxlength="50">
-                </div>
+        <div class="alert alert-primary mt-4" role="alert">
+        <h4>Farmacia</h4>
         </div>
 
-    </div>
-    <div class="row">
-        <div class="col-6 col-md-6">
-                <div class="form-group">
-                        <label >Precio</label>
-                        <input type="number" step=0.01 id="precio" min="0" max="1000" class="form-control">
-                </div>
-        </div>
-        <div class="col-6 col-md-6">
-                <div class="form-group">  
-                        <label ></label>
-                <br>      
-                        <button id="boton" type="submit" class="btn btn-primary" onclick="guardar()">Guardar</button>  
-                </div>
-        </div>
-    </div>
+        <div class="row">
 
-</div>
-
-<div class="container" >
-    
-        <div class="alert alert-primary" role="alert">
-         Lista de medicamentos
-        </div>
-
-        <div class="col-6 col-md-6">
-                <div class="form-group">  
-                        <label ></label>
-                <br>      
-                        <button type="submit" class="btn btn-success" onclick="listar()">Buscar</button>  
+                <div class="col-2 col-md-2">
+                        <div class="form-group">
+                                <label for="colFormLabel" class="col-sm-2 col-form-label">Medicamento</label>
+                        </div>
                 </div>
-        </div>
+
+                <div class="col-3 col-md-3">
+                        <div class="form-group">
+                                <input type="text" id="txtmedicamento" class="form-control" maxlength="25">
+                        </div>
+                </div>
+                <div class="col-3 col-md-3">
+                        <div class="form-group">
+                        <button type="submit" class="btn btn-primary" onclick="buscar()">Buscar</button>  
+                        </div>
+                </div>
+                <div class="col-4 col-md-4 ">
+                        <div class="form-group">
+                        <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#ModalNuevo">Nuevo</button>  
+                        </div>
+                </div>
+        
+            </div>
+
 </div>  
+
+<!-- Modal -->
+<div class="modal fade" id="ModalNuevo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+                <div class="alert alert-success col-12 col-md-12" role="alert">
+                  <h5>Registrar medicamento</h5>      
+                </div>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                        <div class="col-12 col-md-12">
+                                <div class="form-group">
+                                        <label for="nombre">Nombre</label>
+                                        <input type="text" id="nombre" class="form-control is-valid" maxlength="25" required>
+                                </div>
+                        </div>
+                        <div class="col-12 col-md-12">
+                                <div class="form-group">
+                                        <label >Descripcion</label>
+                                        <textarea class="form-control" id="descripcion" rows="3"></textarea>
+                                </div>
+                        </div>
+
+                        <div class="col-12 col-md-12">
+                                <div class="form-group">
+                                        <label >Precio</label>
+                                        <input type="number" step=0.01 id="precio" min="0" max="1000" class="form-control is-valid" required>
+                                </div>
+                        </div>             
+                </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button id="boton" type="submit" class="btn btn-primary" onclick="guardar()">Guardar</button> 
+            </div>
+          </div>
+        </div>
+</div>
 
 
 
